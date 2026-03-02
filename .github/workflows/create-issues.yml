@@ -1,0 +1,31 @@
+name: Create Project Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: >
+          Type "yes" to confirm you want to create all project issues.
+          Existing issues with the same title will be skipped automatically.
+        required: true
+        default: "no"
+
+jobs:
+  create-issues:
+    name: Create 53 Project Issues
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'yes' }}
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create all project issues
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fn = require('./.github/scripts/create-issues.js');
+            await fn({ github, context });
