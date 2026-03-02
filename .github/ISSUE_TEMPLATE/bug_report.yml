@@ -1,0 +1,99 @@
+name: "\U0001F41B Bug Report"
+description: Report a reproducible bug in the BitWork smart contracts or frontend.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report! Please fill in as much detail as possible.
+
+  - type: checkboxes
+    id: existing-issues
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search the [open issues](../issues) before filing a new one.
+      options:
+        - label: I have searched the existing issues and this is a new bug.
+          required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of the project is affected?
+      options:
+        - "Smart Contracts – Escrow (bitwork_escrow.rs)"
+        - "Smart Contracts – Reputation / Identity (bitwork_id.rs)"
+        - "Smart Contracts – Factory"
+        - "Frontend – Wallet Integration (Freighter / LOBSTR)"
+        - "Frontend – UI / UX"
+        - "SDK Integration (stellar-sdk / soroban-client)"
+        - "CI / Tooling"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: network
+    attributes:
+      label: Network / Environment
+      description: "e.g. Stellar Testnet, Stellar Mainnet, local sandbox"
+      placeholder: "Stellar Testnet"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a minimal set of steps to reproduce the bug.
+      placeholder: |
+        1. Call contract function `release_funds` with …
+        2. Observe error …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behaviour
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behaviour
+      description: What actually happened? Include error messages, transaction IDs, or screenshots.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Fill in the relevant details for your environment.
+      value: |
+        - OS: [e.g. macOS 14, Ubuntu 22.04]
+        - Rust version: [e.g. 1.78.0]
+        - stellar-cli version: [e.g. 20.5.0]
+        - Node.js version: [e.g. 20.x]
+        - Browser (frontend bugs): [e.g. Chrome 124]
+        - Freighter version (wallet bugs): [e.g. 5.x]
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, logs, or links that may help diagnose the issue.

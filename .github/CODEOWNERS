@@ -1,0 +1,25 @@
+# CODEOWNERS
+# These owners will be requested for review when a PR touches the listed paths.
+# Syntax: <pattern>  <owner> [<owner2> ...]
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything not matched below
+*                               @Steller-projects/maintainers
+
+# Smart contracts (Soroban / Rust)
+/contracts/                     @Steller-projects/contracts-team
+/Cargo.toml                     @Steller-projects/contracts-team
+/Cargo.lock                     @Steller-projects/contracts-team
+
+# Frontend (Next.js)
+/frontend/                      @Steller-projects/frontend-team
+/app/                           @Steller-projects/frontend-team
+/src/                           @Steller-projects/frontend-team
+
+# CI / GitHub configuration
+/.github/                       @Steller-projects/maintainers
+
+# Documentation
+/README.md                      @Steller-projects/maintainers
+/CONTRIBUTING.md                @Steller-projects/maintainers
+/docs/                          @Steller-projects/maintainers
