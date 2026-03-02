@@ -1,0 +1,33 @@
+name: Create Project Issues (GitHub CLI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: >
+          Type "yes" to confirm you want to create all project issues.
+          Existing issues with the same title will be skipped automatically.
+        required: true
+        default: "no"
+
+jobs:
+  create-issues:
+    name: Create 53 Project Issues via gh CLI
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.confirm == 'yes' }}
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create all project issues via GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash .github/scripts/create-issues.sh
