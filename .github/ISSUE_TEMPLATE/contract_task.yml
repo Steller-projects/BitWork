@@ -1,0 +1,50 @@
+name: "\U0001F4CB Contract Task"
+description: Track a specific Soroban smart contract implementation task.
+title: "[Contract]: "
+labels: ["smart-contract", "soroban"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to track a smart contract implementation task (new function, storage change, authorization logic, etc.).
+
+  - type: dropdown
+    id: contract
+    attributes:
+      label: Target Contract
+      options:
+        - "bitwork_escrow.rs – Escrow"
+        - "bitwork_id.rs – Reputation / Identity"
+        - "Factory Contract"
+        - "New Contract"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: Describe what needs to be implemented or changed, and why.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: List the conditions that must be met for this task to be considered complete.
+      placeholder: |
+        - [ ] Function `initialize` accepts `owner`, `builder`, `amount`, and `token` arguments
+        - [ ] `require_auth(owner)` is called before releasing funds
+        - [ ] `cargo test` passes with at least one unit test covering the happy path
+        - [ ] `stellar contract build` produces a valid `.wasm` artifact
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Implementation Notes
+      description: Any hints, references to the Soroban docs, or design decisions to be aware of.

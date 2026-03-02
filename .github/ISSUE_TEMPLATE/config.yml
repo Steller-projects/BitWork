@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "\U0001F4AC BitWork Discussions"
+    url: https://github.com/Steller-projects/BitWork/discussions
+    about: Ask questions and share ideas in the community forum.
+  - name: "\U0001F4D6 Stellar / Soroban Documentation"
+    url: https://developers.stellar.org/docs/build/smart-contracts/overview
+    about: Official Soroban smart contract documentation.
+  - name: "\U0001F4B8 Stellar Developer Discord"
+    url: https://discord.gg/stellardev
+    about: Real-time help from the Stellar developer community.
